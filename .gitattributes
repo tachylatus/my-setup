@@ -1,0 +1,96 @@
+# Set default to automatically detect text files and normalize line endings
+* text=auto
+
+# Force certain Windows-specific files to always use CRLF line endings etc.
+*.[bB][aA][tT]  text eol=crlf
+*.[cC][mM][dD]  text eol=crlf
+*.[pP][sS]1     text eol=crlf working-tree-encoding=UTF-8
+# use binary diff; specifying UTF-16LE-BOM results in encoding failure
+*.[rR][eE][gG]  -text diff
+
+# These files should always use LF line endings
+*.bash          text eol=lf diff=bash
+*.Dockerfile    text eol=lf
+*.sh            text eol=lf diff=bash
+.dockerignore   text eol=lf
+configure       text eol=lf
+configure.*     text eol=lf
+Dockerfile      text eol=lf
+Dockerfile.*    text eol=lf
+Makefile        text eol=lf
+Makefile.*      text eol=lf
+
+################################################################################
+# These files are text and should be normalized (convert CRLF -> LF)
+# Git built-in diff patterns:
+#   http://git-scm.com/docs/gitattributes#_defining_a_custom_hunk_header
+*.cs            text diff=csharp
+*.csproj        text
+*.css           text diff=css
+*.css.map       text
+*.htm           text diff=html
+*.html          text diff=html
+*.js            text
+*.json          text
+*.md            text diff=markdown
+*.msbuild       text
+*.php           text diff=php
+*.php[345s]     text diff=php
+*.phtml         text diff=php
+*.p[lm]         text diff=perl
+*.py            text diff=python
+*.py[iw]        text diff=python
+*.razor         text
+*.rb            text diff=ruby
+*.runsettings   text
+*.sln           text
+*.tt            text
+*.txt           text
+*.xaml          text
+*.xhtml         text diff=html
+*.xml           text
+*.yaml          text
+*.yml           text
+.editorconfig   text
+.gitattributes  text
+.gitconfig      text
+.gitignore      text
+
+################################################################################
+# These files should be treated as binary (binary is a macro for -text -diff)
+#
+# Databases etc.
+*.db            binary
+*.db3           binary
+*.parquet       binary
+*.sdf           binary
+*.sqlite        binary
+*.sqlite3       binary
+#
+# Fonts
+*.eot           binary
+*.otf           binary
+*.ttf           binary
+*.woff          binary
+*.woff2         binary
+
+################################################################################
+# Images
+# Common web image file types:
+#   https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types
+*.apng          binary
+*.avif          binary
+*.bmp           binary
+*.cur           binary
+*.ico           binary
+*.gif           binary
+*.jfif          binary
+*.jpeg          binary
+*.jpg           binary
+*.pjp           binary
+*.pjpeg         binary
+*.png           binary
+*.svg           text
+*.tif           binary
+*.tiff          binary
+*.webp          binary
