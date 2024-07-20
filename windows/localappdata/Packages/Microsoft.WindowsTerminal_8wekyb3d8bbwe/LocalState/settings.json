@@ -56,6 +56,15 @@
                 "name": "Command Prompt"
             },
             {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "elevate": true,
+                "guid": "{0e4e0c81-a7b3-4e71-98d3-a850543119dc}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
+                "name": "Command Prompt (Administrator)",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": true,
                 "name": "Ubuntu",
