@@ -93,6 +93,14 @@
                 "hidden": false,
                 "name": "Ubuntu",
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+            },
+            {
+                "commandline": "%PROGRAMFILES%/Git/bin/bash.exe -i -l",
+                "guid": "{00000000-0000-0000-ba54-000000000002}",
+                "hidden": false,
+                "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
+                "name": "Bash",
+                "startingDirectory": "%USERPROFILE%\\repos\\"
             }
         ]
     },
