@@ -1,12 +1,18 @@
 try
 {
     winget search --accept-source-agreements somethingthatdoesnotexist >$null
+    Write-Host ">>> Canonical.Ubuntu.2204"
+    winget install --scope user -e --id Canonical.Ubuntu.2204
     Write-Host ">>> Derailed.k9s"
     winget install --scope user -e --id Derailed.k9s -l "$env:USERPROFILE\bin" -r k9s.exe
     Write-Host ">>> Discord.Discord"
     winget install --scope user -e --id Discord.Discord
     Write-Host ">>> Gyan.FFmpeg"
     winget install --scope user -e --id Gyan.FFmpeg
+    Write-Host ">>> FiloSottile.age"
+    winget install --scope user -e --id FiloSottile.age -l "$env:USERPROFILE\bin"
+    Write-Host ">>> FluxCD.Flux"
+    winget install --scope user -e --id FluxCD.Flux -l "$env:USERPROFILE\bin" -r flux.exe
     Write-Host ">>> jqlang.jq"
     winget install --scope user -e --id jqlang.jq -l "$env:USERPROFILE\bin" -r jq.exe
     Write-Host ">>> Kubernetes.kubectl"
