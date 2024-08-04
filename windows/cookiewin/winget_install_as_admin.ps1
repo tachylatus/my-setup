@@ -36,6 +36,10 @@ try
     winget install -e --id Inkscape.Inkscape
     Write-Host ">>> JoachimEibl.KDiff3"
     winget install -e --id JoachimEibl.KDiff3
+    Write-Host ">>> Kubernetes.minikube"
+    winget install -e --id Kubernetes.minikube
+    Write-Host ">>> Microsoft.AzureCLI"
+    winget install -e --id Microsoft.AzureCLI
     Write-Host ">>> Microsoft.VisualStudio.2022.Community"
     winget install -e --id Microsoft.VisualStudio.2022.Community
     Write-Host ">>> Microsoft.VisualStudio.2022.Community - added component workloads:"
