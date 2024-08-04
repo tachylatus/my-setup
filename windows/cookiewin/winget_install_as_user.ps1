@@ -7,8 +7,6 @@ try
     winget install --scope user -e --id Derailed.k9s -l "$env:USERPROFILE\bin" -r k9s.exe
     Write-Host ">>> Discord.Discord"
     winget install --scope user -e --id Discord.Discord
-    Write-Host ">>> Gyan.FFmpeg"
-    winget install --scope user -e --id Gyan.FFmpeg
     Write-Host ">>> FiloSottile.age"
     winget install --scope user -e --id FiloSottile.age -l "$env:USERPROFILE\bin"
     Write-Host ">>> FluxCD.Flux"
@@ -29,10 +27,47 @@ try
     winget install --scope user -e --id SlackTechnologies.Slack
     Write-Host ">>> WinSCP.WinSCP"
     winget install --scope user -e --id WinSCP.WinSCP
+
+    Write-Host ">>> Gyan.FFmpeg"
+    if (Test-Path "$env:USERPROFILE\bin\ffmpeg")
+    {
+        Write-Host "> Skipped, already exists: $env:USERPROFILE\bin\ffmpeg"
+    }
+    else
+    {
+        winget install --scope user -e --id Gyan.FFmpeg -l "$env:USERPROFILE\bin\ffmpeg_winget"
+        Write-Host "> Moving to $env:USERPROFILE\bin\ffmpeg"
+        Move-Item "$env:USERPROFILE\bin\ffmpeg_winget\ffmpeg-*" "$env:USERPROFILE\bin\ffmpeg"
+        Write-Host "> Cleaning up"
+        Remove-Item "$env:USERPROFILE\bin\ffmpeg_winget\Gyan.FFmpeg_*.db" -Force
+        Remove-Item "$env:USERPROFILE\bin\ffmpeg_winget"
+    }
+
+    Write-Host ">>> Checking PATH for USER"
+    $userpath = [System.Environment]::GetEnvironmentVariable("PATH","USER")
+    if ($userpath.Contains(";$env:USERPROFILE\bin"))
+    {
+        Write-Host "> Already in PATH: $env:USERPROFILE\bin"
+    }
+    else
+    {
+        Write-Host "> Adding to PATH: $env:USERPROFILE\bin"
+        $userpath = $userpath + ";$env:USERPROFILE\bin"
+        [System.Environment]::SetEnvironmentVariable("PATH", $userpath,"USER")
+    }
+    if ($userpath.Contains(";$env:USERPROFILE\bin\ffmpeg\bin"))
+    {
+        Write-Host "> Already in PATH: $env:USERPROFILE\bin\ffmpeg\bin"
+    }
+    else
+    {
+        Write-Host "> Adding to User PATH: $env:USERPROFILE\bin\ffmpeg\bin"
+        $userpath = $userpath + ";$env:USERPROFILE\bin\ffmpeg\bin"
+        [System.Environment]::SetEnvironmentVariable("PATH", $userpath,"USER")
+    }
 }
 finally
 {
-    Write-Host ">>> Remember to add this to your PATH: $env:USERPROFILE\bin"
     if (-not $psISE)
     {
         Write-Host -NoNewLine 'Press ENTER to exit...'
