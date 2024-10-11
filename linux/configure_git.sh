@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 git config --global init.defaultBranch main
 
 git config --global core.excludesfile "${HOME:?}/.gitignore"
