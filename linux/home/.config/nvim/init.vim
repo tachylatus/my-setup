@@ -16,6 +16,19 @@ nnoremap <F4> :set invpaste paste?<CR>
 set pastetoggle=<F4>
 set showmode
 
+let g:clipboard = {
+        \   'name': 'wslclipboard',
+        \   'copy': {
+        \      '+': 'win32yank.exe -i --crlf',
+        \      '*': 'win32yank.exe -i --crlf',
+        \    },
+        \   'paste': {
+        \      '+': 'win32yank.exe -o --lf',
+        \      '*': 'win32yank.exe -o --lf',
+        \   },
+        \   'cache_enabled': 1,
+        \ }
+
 " Synchronize clipboard and default registers, for copy-paste across terminals
 " NOTE: For Neovim running in WSL, ensure win32yank.exe is available in PATH
 set clipboard+=unnamedplus
