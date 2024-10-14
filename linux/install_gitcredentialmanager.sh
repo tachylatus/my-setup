@@ -59,7 +59,7 @@ _github_latest_release_tag() {
     if [ -z "$TAG" ]; then
         _error "ERROR: Failed to detect latest release tag"
         return 1
-    fi   
+    fi
     _info "Latest release tag:" "$TAG"
     return 0
 }
