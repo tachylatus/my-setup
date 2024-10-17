@@ -22,11 +22,6 @@ _main() {
     else
         _github_latest_release_tag "$REPO"
         VERSION=${TAG#v}
-        current_version=$(git-credential-manager --version)
-        if [ "$VERSION" = "${current_version%%+*}" ]; then
-            _info "Already installed:" "$current_version"
-            exit 0
-        fi
     fi
 
     ARCH="x64"
