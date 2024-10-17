@@ -22,7 +22,7 @@ _main() {
     else
         _github_latest_release_tag "$REPO"
         VERSION=${TAG#v}
-        current_version=$(git-credential-manager --version)
+        current_version=$(git-credential-manager --version 2>/dev/null || true)
         if [ "$VERSION" = "${current_version%%+*}" ]; then
             _info "Already installed:" "$current_version"
             exit 0
