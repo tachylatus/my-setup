@@ -55,6 +55,8 @@ try
         "Microsoft.ComponentGroup.PythonTools.NativeDevelopment")
     Write-Host ">>> Microsoft.WindowsTerminal"
     winget install -e --id Microsoft.WindowsTerminal
+    Write-Host ">>> Musescore.Musescore"
+    winget install -e --id Musescore.Musescore
     Write-Host ">>> Notepad++.Notepad++"
     winget install -e --id Notepad++.Notepad++
     Write-Host ">>> Oracle.VirtualBox"
