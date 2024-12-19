@@ -74,6 +74,8 @@ try
     winget install --scope user -e --id Python.Python.3.12
     Write-Host ">>> Seagate.SeaTools.Legacy"
     winget install -e --id Seagate.SeaTools.Legacy
+    # Write-Host ">>> Streamlink.Streamlink"
+    # winget install -e --id Streamlink.Streamlink
     Write-Host ">>> TeamViewer.TeamViewer"
     winget install -e --id TeamViewer.TeamViewer
     Write-Host ">>> TheDocumentFoundation.LibreOffice"
