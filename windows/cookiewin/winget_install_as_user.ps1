@@ -23,6 +23,8 @@ try
     winget install --scope user -e --id MikeFarah.yq -l "$env:USERPROFILE\bin" -r yq.exe
     Write-Host ">>> Mozilla.SOPS"
     winget install --scope user -e --id Mozilla.SOPS -l "$env:USERPROFILE\bin" -r sops.exe
+    Write-Host ">>> OpenWhisperSystems.Signal"
+    winget install --scope user -e --id OpenWhisperSystems.Signal
     Write-Host ">>> SlackTechnologies.Slack"
     winget install --scope user -e --id SlackTechnologies.Slack
     Write-Host ">>> WinSCP.WinSCP"
