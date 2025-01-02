@@ -16,6 +16,8 @@ try
     winget install -e --id Audacity.Audacity
     Write-Host ">>> cthoeing.PasswordTech"
     winget install -e --id cthoeing.PasswordTech
+    Write-Host ">>> Dell.DisplayManager"
+    winget install -e --id Dell.DisplayManager
     Write-Host ">>> Docker.DockerDesktop"
     winget install -e --id Docker.DockerDesktop
     Write-Host ">>> DominikReichl.KeePass"
