@@ -24,7 +24,7 @@ git config --global alias.co checkout
 git config --global alias.st status
 git config --global alias.sub submodule
 
-# Ammend latest commit
+# Amend latest commit
 git config --global alias.amend 'commit --amend'
 # Checkout a new branch
 git config --global alias.cb 'checkout -b'
@@ -34,16 +34,20 @@ git config --global alias.changelog 'log --pretty=format:"- %s"'
 git config --global alias.df 'diff --cached'
 # Push changes to origin, e.g. prior to creating a merge request
 git config --global alias.done 'push origin HEAD'
-# Switch to master and pull changes incl. pruning, e.g. after a merge into master
-git config --global alias.donedone '!git switch $(git main) && git fetch -ap && git pull --ff-only'
+# Switch to branch and pull changes incl. pruning e.g. after a merge
+git config --global alias.donedone '!git switch $1 && git pull --ff-only origin $1:$1 && git fetch -ap #'
+# Switch to main/master and pull changes incl. pruning e.g. after a merge
+git config --global alias.donemain '!git switch $(git main) && git pull --ff-only origin $(git main):$(git main) && git fetch -ap'
+# Search files in working directory, including untracked, excluding ignored
+git config --global alias.gr 'grep --no-index --exclude-standard'
 # Display the last log entry of current branch
 git config --global alias.last 'log -1 HEAD'
 # Determine whether default branch is master or main
-git config --global alias.main '![ -f "$(git rev-parse --show-toplevel)/.git/refs/heads/master" ] && echo "master" || echo "main"'
+git config --global alias.main '![ -f "$(git rev-parse --show-toplevel)/.git/refs/heads/master" ] && echo master || echo main'
 # Update all submodules
 git config --global alias.subup 'submodule update --recursive --remote --init'
 # Fetch all changes, prune deleted branches and tags, and pull/update master (fast-forward only)
-git config --global alias.sync '!git fetch -ap && git pull --ff-only origin "$(git main)":"$(git main)"'
+git config --global alias.sync '!git fetch -ap && git pull --ff-only origin $(git main):$(git main)'
 # Unstage everything (does not change contents of working directory)
 git config --global alias.unstage 'reset HEAD --'
 
