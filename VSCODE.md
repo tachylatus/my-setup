@@ -70,3 +70,43 @@
   - Description: YAML Language Support by Red Hat, with built-in Kubernetes syntax support
   - Publisher: Red Hat
   - VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=redhat.- vscode-yaml
+
+## Settings
+
+Preferences: Open User Settings (JSON)
+
+```json
+{
+  "chat.commandCenter.enabled": false,
+  "editor.rulers": [72, 80, 88, 120],
+  "editor.renderWhitespace": "all",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "telemetry.feedback.enabled": false,
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+}
+```
