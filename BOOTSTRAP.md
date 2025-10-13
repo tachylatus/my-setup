@@ -10,6 +10,10 @@
   URL=https://raw.githubusercontent.com/$REPO/refs/heads/$BRANCH/$FILEPATH
   sh <(curl "-#L" $URL)
   ```
+- On WSL (Windows Subsystem for Linux), you may also need to install `libICE.so.6`, `libSM.so.6`, and WSL utilities e.g. for launching the default web browser:
+  ```bash
+  sudo apt install libice6 libsm6 wslu
+  ```
 - Configure Git
   ```bash
   git config --global credential.credentialStore cache
