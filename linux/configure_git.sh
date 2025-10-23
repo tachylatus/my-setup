@@ -35,18 +35,22 @@ git config --global alias.df 'diff --cached'
 # Push changes to origin, e.g. prior to creating a merge request
 git config --global alias.done 'push origin HEAD'
 # Switch to branch and pull changes incl. pruning e.g. after a merge
+# shellcheck disable=SC2016
 git config --global alias.donedone '!git switch $1 && git pull --ff-only origin $1:$1 && git fetch -ap #'
 # Switch to main/master and pull changes incl. pruning e.g. after a merge
+# shellcheck disable=SC2016
 git config --global alias.donemain '!git switch $(git main) && git pull --ff-only origin $(git main):$(git main) && git fetch -ap'
 # Search files in working directory, including untracked, excluding ignored
 git config --global alias.gr 'grep --no-index --exclude-standard'
 # Display the last log entry of current branch
 git config --global alias.last 'log -1 HEAD'
 # Determine whether default branch is master or main
+# shellcheck disable=SC2016
 git config --global alias.main '![ -f "$(git rev-parse --show-toplevel)/.git/refs/heads/master" ] && echo master || echo main'
 # Update all submodules
 git config --global alias.subup 'submodule update --recursive --remote --init'
 # Fetch all changes, prune deleted branches and tags, and pull/update master (fast-forward only)
+# shellcheck disable=SC2016
 git config --global alias.sync '!git fetch -ap && git pull --ff-only origin $(git main):$(git main)'
 # Unstage everything (does not change contents of working directory)
 git config --global alias.unstage 'reset HEAD --'
