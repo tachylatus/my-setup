@@ -42,6 +42,8 @@ git config --global alias.donedone '!git switch $1 && git pull --ff-only origin 
 git config --global alias.donemain '!git switch $(git main) && git pull --ff-only origin $(git main):$(git main) && git fetch -ap'
 # Search files in working directory, including untracked, excluding ignored
 git config --global alias.gr 'grep --no-index --exclude-standard'
+# Display log as a graph
+git config --global alias.graph 'log --all --graph --decorate --oneline'
 # Display the last log entry of current branch
 git config --global alias.last 'log -1 HEAD'
 # Determine whether default branch is master or main

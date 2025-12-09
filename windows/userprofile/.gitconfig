@@ -35,6 +35,8 @@
 	donemain = !git switch $(git main) && git pull --ff-only origin $(git main):$(git main) && git fetch -ap
 	# Search files in working directory, including untracked, excluding ignored
 	gr = grep --no-index --exclude-standard
+	# Display log as a graph
+	graph = log --all --graph --decorate --oneline
 	# Display the last log entry of current branch
 	last = log -1 HEAD
 	# Determine whether default branch is master or main
