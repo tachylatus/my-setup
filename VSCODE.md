@@ -109,6 +109,7 @@ Preferences: Open User Settings (JSON)
       "args": ["-d", "Ubuntu"]
     }
   },
+  "terminal.integrated.suggest.enabled": false, // disable terminal IntelliSense
   "[dockercompose]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
