@@ -110,6 +110,15 @@ Preferences: Open User Settings (JSON)
     }
   },
   "terminal.integrated.suggest.enabled": false, // disable terminal IntelliSense
+  // disable terminal sounds
+  "accessibility.signals.terminalCommandFailed": {
+    "sound": "off",
+    "announcement": "off"
+  },
+  "accessibility.signals.terminalCommandSucceeded": {
+      "sound": "off",
+      "announcement": "off",
+  },
   "[dockercompose]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
