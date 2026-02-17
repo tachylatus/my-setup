@@ -26,6 +26,8 @@ git config --global alias.sub submodule
 
 # Amend latest commit
 git config --global alias.amend 'commit --amend'
+# Show all branches
+git config --global alias.ba 'branch -a'
 # Checkout a new branch
 git config --global alias.cb 'checkout -b'
 # Produce Markdown changelog e.g. specifying dev..HEAD (or just dev..)

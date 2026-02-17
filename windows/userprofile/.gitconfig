@@ -21,6 +21,8 @@
 	sub = submodule
 	# Amend latest commit
 	amend = commit --amend
+	# Show all branches
+	ba = branch -a
 	# Checkout a new branch
 	cb = checkout -b
 	# Produce Markdown changelog, specify e.g. main..dev (or just main..)
