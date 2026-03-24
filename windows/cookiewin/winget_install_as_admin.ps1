@@ -74,6 +74,8 @@ try
     winget install --scope user -e --id Python.Python.3.11
     Write-Host ">>> Python.Python.3.12"
     winget install --scope user -e --id Python.Python.3.12
+    Write-Host ">>> Python.Python.3.13"
+    winget install --scope user -e --id Python.Python.3.13
     Write-Host ">>> Seagate.SeaTools.Legacy"
     winget install -e --id Seagate.SeaTools.Legacy
     # Write-Host ">>> Streamlink.Streamlink"
