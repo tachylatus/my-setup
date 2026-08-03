@@ -6,9 +6,12 @@ set -e
 # Python Developer's Guide - Setup and Building - Install dependencies:
 #   https://devguide.python.org/getting-started/setup-building/index.html#install-dependencies
 
-echo ">>> uncomment deb-src in /etc/apt/sources.list"
-sudo sed -i 's/^# \(deb-src [^#]* main \)/\1/' /etc/apt/sources.list
-grep "^deb-src" /etc/apt/sources.list
+# more recent ubuntu versions have sources enabled in /etc/apt/sources.list.d/ubuntu.sources
+if grep -q "# deb-src" /etc/apt/sources.list; then
+  echo ">>> uncomment deb-src in /etc/apt/sources.list"
+  sudo sed -i 's/^# \(deb-src [^#]* main \)/\1/' /etc/apt/sources.list
+  grep "^deb-src" /etc/apt/sources.list
+fi
 
 export DEBIAN_FRONTEND=noninteractive
 
