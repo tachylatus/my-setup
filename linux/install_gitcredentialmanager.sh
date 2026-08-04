@@ -26,13 +26,23 @@ _main() {
         if [ "$VERSION" = "${current_version%%+*}" ]; then
             _info "Already installed:" "$current_version"
             exit 0
+        elif [ -n "$VERSION" ]; then
+            _info "Currently installed:" "$current_version"
         fi
     fi
 
-    FILENAME="gcm-linux_amd64.${VERSION:?No version specified}.deb"
-    URL="$REPO_URL/releases/download/v${VERSION}/${FILENAME}"
-    _info Downloading "$FILENAME" ...
-    curl -#LO "$URL"
+    DOWNLOAD_URL=$(_github_release_download_urls "$REPO" "$TAG" "gcm-linux.*(amd64|x64).*.deb")
+    if [ "$(echo "$URL" | wc -l)" != 1 ]; then
+        _error "ERROR: Received multiple download URLs matching given pattern"
+        exit 1
+    fi
+    FILENAME=$(basename "$DOWNLOAD_URL")
+    if [ -z "$FILENAME" ]; then
+        _error "ERROR: Unable to determine filename from URL, $DOWNLOAD_URL"
+        exit 1
+    fi
+    _info Downloading "$DOWNLOAD_URL" ...
+    curl -#Lo "$FILENAME" "$DOWNLOAD_URL"
     _info Installing "$FILENAME" ...
     sudo dpkg -i "$FILENAME"
     rm -v "$FILENAME"
@@ -61,6 +71,16 @@ _github_latest_release_tag() {
         return 1
     fi
     _info "Latest release tag:" "$TAG"
+    return 0
+}
+
+_github_release_download_urls() {
+    REPO=${1:?} # owner/repo
+    TAG=${2:?}
+    PATTERN=${3:-'[^/"]*'}
+    DOWNLOAD_URL=$(curl -H "Accept: application/vnd.github+json" -s "https://api.github.com/repos/$REPO/releases/tags/$TAG" \
+        | sed -E 's#^\s*"browser_download_url":\s*"([^"]*/'"$PATTERN"')".*$#\1#;t;d' )
+    echo "$DOWNLOAD_URL"
     return 0
 }
 
