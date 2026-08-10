@@ -43,6 +43,8 @@
 	last = log -1 HEAD
 	# Determine whether default branch is master or main
 	main = ![ -f \"$(git rev-parse --show-toplevel)/.git/refs/heads/master\" ] && echo master || echo main
+	# Show name status (files added, deleted, modified, renamed)
+	sns = show --name-status
 	# Update all submodules
 	subup = submodule update --recursive --remote --init
 	# Fetch all changes, prune deleted branches and tags, and pull/update master (fast-forward only)

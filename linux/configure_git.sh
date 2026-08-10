@@ -52,6 +52,8 @@ git config --global alias.last 'log -1 HEAD'
 # Determine whether default branch is master or main
 # shellcheck disable=SC2016
 git config --global alias.main '![ -f "$(git rev-parse --show-toplevel)/.git/refs/heads/master" ] && echo master || echo main'
+# Show name status (files added, deleted, modified, renamed)
+git config --global alias.sns 'show --name-status'
 # Update all submodules
 git config --global alias.subup 'submodule update --recursive --remote --init'
 # Fetch all changes, prune deleted branches and tags, and pull/update master (fast-forward only)
