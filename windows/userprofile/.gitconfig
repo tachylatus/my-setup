@@ -13,6 +13,9 @@
 	default = current
 [credential]
 	helper = manager-core
+[credential "https://git-codecommit.*.amazonaws.com"]
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
 [alias]
 	br = branch
 	ci = commit

@@ -18,6 +18,8 @@ git config --global credential.credentialStore cache
 
 git config --global credential.https://github.com.helper "$(which git-credential-manager)"
 git config --global credential.https://dev.azure.com.helper "$(which git-credential-manager)"
+git config --global credential.'https://git-codecommit.*.amazonaws.com'.helper '!aws codecommit credential-helper $@'
+git config --global credential.'https://git-codecommit.*.amazonaws.com'.UseHttpPath true
 
 git config --global alias.br branch
 git config --global alias.ci commit
