@@ -1,5 +1,5 @@
 #!/bin/sh
-# Build dependencies need to be installed first (e.g. install-ubuntu/install_python_build_deps.sh)
+# Build dependencies need to be installed first (e.g. install_python_build_deps.sh)
 
 # exit in case of errors (pipelines excluded)
 set -e
