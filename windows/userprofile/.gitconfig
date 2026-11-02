@@ -32,12 +32,6 @@
 	changelog = log --pretty=format:\"- %s\"
 	# Show staged changes
 	df = diff --cached
-	# Push changes to origin, e.g. prior to creating a merge request
-	done = push origin HEAD
-	# Switch to branch and pull changes incl. pruning e.g. after a merge
-	donedone = "!git switch $1 && git pull --ff-only origin $1:$1 && git fetch -ap #"
-	# Switch to main/master and pull changes incl. pruning e.g. after a merge
-	donemain = !git switch $(git main) && git pull --ff-only origin $(git main):$(git main) && git fetch -ap
 	# Search files in working directory, including untracked, excluding ignored
 	gr = grep --no-index --exclude-standard
 	# Display log as a graph
@@ -48,9 +42,11 @@
 	main = ![ -f \"$(git rev-parse --show-toplevel)/.git/refs/heads/master\" ] && echo master || echo main
 	# Show name status (files added, deleted, modified, renamed)
 	sns = show --name-status
+	# Switch to branch and pull changes incl. pruning e.g. after a merge
+	sp = "!git switch $1 && git pull --ff-only origin $1:$1 && git fetch -ap #"
 	# Update all submodules
 	subup = submodule update --recursive --remote --init
-	# Fetch all changes, prune deleted branches and tags, and pull/update master (fast-forward only)
-	sync = !git fetch -ap && git pull --ff-only origin $(git main):$(git main)
+	# Fetch all changes, prune deleted branches and tags
+	sync = git fetch -ap
 	# Unstage everything (does not change contents of working directory)
 	unstage = reset HEAD --
