@@ -63,6 +63,8 @@ export PATH=$HOME/.local/bin:${PATH//"$HOME/.local/bin:"/}
 export PYTHONDONTWRITEBYTECODE=1
 
 alias ll='ls -alF --time-style=long-iso'
+# disable "alternate screen" mode e.g. so mouse scrolling is no longer remapped
+alias fixmouse='tput rmcup'
 alias ssh-agent-start='[ -e "$HOME/.ssh-agent.env" ] && . "$HOME/.ssh-agent.env"; [ -n "$SSH_AUTH_SOCK" ] && [ -e "$SSH_AUTH_SOCK" ] || { ssh-agent >"$HOME/.ssh-agent.env"; . "$HOME/.ssh-agent.env"; }'
 alias sas=ssh-agent-start
 alias ssh-agent-stop='eval $(ssh-agent -k); [ -n "$SSH_AUTH_SOCK" ] && rm -f "$SSH_AUTH_SOCK"; rm -f "$HOME/.ssh-agent.env"'
